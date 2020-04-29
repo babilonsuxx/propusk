@@ -42,6 +42,29 @@ const Home = ({ id, go, fetchedUser }) => (
 					</Select>
 				</FormLayoutGroup>
 			</FormLayout>
+ 
+			<FormLayout>
+				<FormLayoutGroup top="Тип документа, удостоверяющего личность:">
+					<Select placeholder="Паспорт/загран/другое..">
+						<option value="1">Паспорт гражданина РФ</option>
+						<option value="2">Иностранный паспорт</option>
+						<option value="3">Иной документ</option>
+					</Select>
+				</FormLayoutGroup>
+			</FormLayout>
+
+			<FormLayout>
+				<FormLayoutGroup top="Серия">
+					<Input type="text" defaultValue="" />
+
+				</FormLayoutGroup>
+			</FormLayout>
+			<FormLayout>
+				<FormLayoutGroup top="Номер">
+					<Input type="text" defaultValue="" />
+
+				</FormLayoutGroup>
+			</FormLayout>
 
 
 			<Div>
