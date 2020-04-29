@@ -7,7 +7,7 @@ import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import { FormLayout, FormLayoutGroup, Input,Select } from '@vkontakte/vkui';
+import { FormLayout, FormLayoutGroup, Input, Select } from '@vkontakte/vkui';
 
 const Home = ({ id, go, fetchedUser }) => (
 	<Panel id={id}>
@@ -35,15 +35,15 @@ const Home = ({ id, go, fetchedUser }) => (
 
 			<FormLayout>
 				<FormLayoutGroup top="Тип документа, удостоверяющего личность:">
-				<Select placeholder="Паспорт/загран/другое">
-				<option value="1">Паспорт гражданина РФ</option>
-				<option value="2">Иностранный паспорт</option>
-				<option value="3">Иной документ</option>
-			</Select>
+					<Select placeholder="Паспорт/загран/другое">
+						<option value="1">Паспорт гражданина РФ</option>
+						<option value="2">Иностранный паспорт</option>
+						<option value="3">Иной документ</option>
+					</Select>
 				</FormLayoutGroup>
 			</FormLayout>
 
-			
+
 			<Div>
 				<Button size="xl" level="2" onClick={go} data-to="persik">
 					Скопировать
