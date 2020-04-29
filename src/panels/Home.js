@@ -35,7 +35,7 @@ const Home = ({ id, go, fetchedUser }) => (
 
 			<FormLayout>
 				<FormLayoutGroup top="Тип документа, удостоверяющего личность:">
-					<Select placeholder="Паспорт/загран/другое">
+					<Select placeholder="Паспорт/загран/другое..">
 						<option value="1">Паспорт гражданина РФ</option>
 						<option value="2">Иностранный паспорт</option>
 						<option value="3">Иной документ</option>
