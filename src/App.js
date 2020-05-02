@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import bridge from '@vkontakte/vk-bridge';
+//import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
+//import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
+import PanelStart from './panels/PanelStart';
+import PanelDocument from './panels/PanelDocument';
+import PanelTransport from './panels/PanelTransport';
+import PanelElse from './panels/PanelElse';
+import PanelElseWork from './panels/PanelElseWork';
+import PanelElseMed from './panels/PanelElseMed';
+//import formData from "./state/FormData";
 
-import Home from './panels/Home';
+/*import Home from './panels/Home';
 import Persik from './panels/Persik';
 
 const App = () => {
@@ -28,14 +35,43 @@ const App = () => {
 		fetchData();
 	}, []);
 
-	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
+	
+	const handleSeriaChange = e => {
+		let input=e.currentTarget;
+		input.setState({login: input.login});
+		console.log(input.value);
 	};
 
 	return (
 		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
+			<Home id='home' fetchedUser={fetchedUser} go={go} handleSeriaChange={handleSeriaChange} />
 			<Persik id='persik' go={go} />
+		</View>
+	);
+} */
+
+
+
+
+
+const App = (formData) => {
+	//первый экран
+	const [activePanel, setActivePanel] = useState('panelStart');	
+	//переход
+	const go = e => {
+		setActivePanel(e);
+	};
+	
+
+	return (
+		<View activePanel={activePanel}>
+			<PanelStart  id="panelStart" go={go} formData={formData.formData} />
+			<PanelDocument  id="panelDocument" go={go} formData={formData.formData}/>
+			<PanelTransport  id="panelTransport" go={go} formData={formData.formData}/>
+			<PanelElse  id="panelElse" go={go} formData={formData.formData}/>
+			<PanelElseMed  id="panelElseMed" go={go} formData={formData.formData}/>
+			<PanelElseWork  id="panelElseWork" go={go} formData={formData.formData}/>
+			
 		</View>
 	);
 }
