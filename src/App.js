@@ -9,6 +9,7 @@ import PanelTransport from './panels/PanelTransport';
 import PanelElse from './panels/PanelElse';
 import PanelElseWork from './panels/PanelElseWork';
 import PanelElseMed from './panels/PanelElseMed';
+import PanelResult from './panels/PanelResult';
 //import formData from "./state/FormData";
 
 /*import Home from './panels/Home';
@@ -71,6 +72,7 @@ const App = (formData) => {
 			<PanelElse  id="panelElse" go={go} formData={formData.formData}/>
 			<PanelElseMed  id="panelElseMed" go={go} formData={formData.formData}/>
 			<PanelElseWork  id="panelElseWork" go={go} formData={formData.formData}/>
+			<PanelResult  id="panelResult" go={go} formData={formData.formData}/>
 			
 		</View>
 	);

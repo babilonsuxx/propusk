@@ -4,36 +4,33 @@ import { InfoRow, Progress, Panel, PanelHeader, Button, Div, PanelHeaderBack, Gr
 
 
 const PanelDocument = (props) => {
-	let plus1 = 0;
-	let progressStep = 0;
-
-	//шевелим прогрессбар 
-	const changeProgressBar = e => {
-		props.formData.progress+=e;
-	}
+	props.formData.progress = 25;
+	
 	
 	//получаем и обновляем значение типа документа 
 	const documentTypeChange = e => {
-		console.log('+'+plus1);
 		let select = e.currentTarget;
 		if (select.value !== '') {
-			props.formData.documentType = select.value;
-			if (plus1 == 0) {
-				progressStep = 5;
-			} else { 
-				progressStep = 0 
-			};
+			props.formData.documentType = select.value;			
 		} else {
-			props.formData.documentType = '';
-			progressStep = -5;
-			plus1 = 0;
-		}
-		//props.formData.progress += plus1;
-		plus1 = 1;
-		changeProgressBar(progressStep);
-		rerenderEntireTree(props.formData);
-		console.log(props.formData.documentType);
+			props.formData.documentType = '';			
+		}			
+		rerenderEntireTree(props.formData);	
 	};
+	//получаем и выводим серию документа
+	const documentSeriesChange =e=> {
+		let input=e.currentTarget;
+		props.formData.documentSeries=input.value;
+	//	console.log(props.formData.documentSeries);
+		rerenderEntireTree(props.formData);
+	}
+	//получаем и выводим 
+	const documentNumberChange=e=>{
+		let input=e.currentTarget;
+		props.formData.documentNumber=input.value;
+	//	console.log(props.formData.documentNumber);
+		rerenderEntireTree(props.formData);
+	}
 
 	return (
 		<Panel id={props.id}>
@@ -41,7 +38,7 @@ const PanelDocument = (props) => {
 				left={
 					<PanelHeaderBack onClick={() => props.go('panelStart')} />
 				}>
-				Документ
+				Документ 
 		</PanelHeader>
 			<Group>
 				<Div>
@@ -64,13 +61,21 @@ const PanelDocument = (props) => {
 
 				<FormLayout>
 					<FormLayoutGroup top="Серия документа, удостоверяющего личность:">
-						<Input type="number" defaultValue="" placeholder="1234" />
+						<Input  type="text"						 
+						placeholder="1234" 
+						defaultValue={props.formData.documentSeries}
+						onChange={documentSeriesChange}
+						/>
 					</FormLayoutGroup>
 				</FormLayout>
 
 				<FormLayout>
 					<FormLayoutGroup top="Номер документа, удостоверяющего личность:">
-						<Input type="number" defaultValue="" placeholder="123456" />
+						<Input   type="text" 						 
+						placeholder="123456" 
+						defaultValue={props.formData.documentNumber}
+						onChange={documentNumberChange}
+						/>
 					</FormLayoutGroup>
 				</FormLayout>
 				<Div>

@@ -5,7 +5,7 @@ import { InfoRow, Progress, Panel, PanelHeader, Group, Button, Div, FormLayout, 
 
 
 const PanelStart = (props) => {
-
+    props.formData.progress = 0;
     
     //получаем значение
     const handleTargetCodeChange = e => {
@@ -13,11 +13,11 @@ const PanelStart = (props) => {
 
         if (select.value !== '') {
             props.formData.targetCode = select.value;
-            props.formData.progress = 20;
+           // props.formData.progress = 20;
             rerenderEntireTree(props.formData);
 
         } else {
-            props.formData.progress = 0;
+           // props.formData.progress = 0;
             props.formData.targetCode = '';
             rerenderEntireTree(props.formData);
         }

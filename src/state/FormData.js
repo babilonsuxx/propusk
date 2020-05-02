@@ -12,7 +12,7 @@ const formData={
 	target: '',
 	adress: '',
 	result: '',
-	progress: 0,
+	progress: 0,	
 }
 
 export default formData;
